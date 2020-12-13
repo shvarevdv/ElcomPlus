@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Values>
+    <Value>a</Value>
+    <Value>12</Value>
+    <Value>4</Value>
+    <Value>12</Value>
+    <Value>w</Value>
+    <Value>a</Value>
+    <Value>12</Value>
+    <Value>b</Value>
+    <Value>4</Value>
+    <Value>72</Value>
+  </Values>
+</Root>
