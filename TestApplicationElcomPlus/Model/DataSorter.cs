@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace TestApplicationElcomPlus.Model
 {
@@ -19,14 +20,28 @@ namespace TestApplicationElcomPlus.Model
         private Dictionary<string, Dictionary<string, int>> resultOfSorting;
         
         public Dictionary<string, Dictionary<string, int>> Sort()
-        {            
-            foreach (var data in dataToSort)
+        {
+            try
             {
-                var sortedValueDictionary = SortValue(data.Value);
-                resultOfSorting.Add(data.Key, sortedValueDictionary);
+                foreach (var data in dataToSort)
+                {
+                    if (data.Value != null)
+                    {
+                        var sortedValueDictionary = SortValue(data.Value);
+                        resultOfSorting.Add(data.Key, sortedValueDictionary);
+                    }
+                    else
+                        resultOfSorting.Add(data.Key, null);
+                }
+
+                return resultOfSorting;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return new Dictionary<string, Dictionary<string, int>>();                
             }
             
-            return resultOfSorting;
         }
 
         private Dictionary<string, int> SortValue(ValuesFromFile valueForSort)

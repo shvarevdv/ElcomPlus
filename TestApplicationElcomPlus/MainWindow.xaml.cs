@@ -69,7 +69,7 @@ namespace TestApplicationElcomPlus
             string resultString = "";
             foreach (var result in resultOfSort)
             {
-                try
+                if (result.Value != null && result.Value.Count > 0)
                 {
                     string fileName = result.Key;
                     int maxCount = result.Value.Values.Max();
@@ -77,14 +77,10 @@ namespace TestApplicationElcomPlus
                     if (maxCount > 1)
                         resultString += String.Format("В файле {0} \n самый повторяющийся элемент: \"{1}\", количество повторений: {2} \n", fileName, maxValue, maxCount);
                     else
-                        resultString += String.Format("В файле {0} \n нет повоторяющихся символов.\n", fileName);                    
+                        resultString += String.Format("В файле {0} \n нет повоторяющихся символов.\n", fileName);
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);                    
-                }
-                
-
+                else
+                    resultString += String.Format("Не удалось считать данные из файла: {0}.\n", result.Key);
             }
             SortedValueTextBlock.Text = resultString;
         }

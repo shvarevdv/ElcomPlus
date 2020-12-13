@@ -57,7 +57,7 @@ namespace TestApplicationElcomPlus.Model
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                
+                valuesFromFile = null;
             }
             
         }
